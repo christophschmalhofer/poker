@@ -1,0 +1,119 @@
+# Generated automatically from Makefile.in by configure.
+LIBPOKER=libpoker.lib
+SLIBPOKER=libpoker.dll
+
+MKTABLE_HELPERS = mktable.obj mktable_utils.obj
+
+OBJ=$(DERIVED_SOURCES:.c=.obj) \
+	deck.obj deck_std.obj rules_std.obj rules_joker.obj evx.obj \
+	deck_astud.obj rules_astud.obj deck_joker.obj lowball.obj \
+	enumerate.obj enumord.obj combinations.obj 
+
+BASIC_TABLES = \
+	t_nbits.c t_topbit.c t_topcard.c t_topfivecards.c t_topfivebits.c \
+        t_toptwobits.c t_cardmasks.c t_maskrank.c t_straight.c 
+PACKED_TABLES = \
+	t_nbitsandstr.c
+EVX_TABLES = \
+	t_evx_pairval.c t_evx_strval.c t_evx_tripsval.c t_evx_flushcards.c
+ASTUD_TABLES = t_astudcardmasks.c
+JOKER_TABLES = t_jokercardmasks.c t_jokerstraight.c
+LOWBALL_TABLES = t_botfivecards.c t_botcard.c t_botfivecardsj.c
+
+EVX_HEADERS = ../include/inlines/evx5.h ../include/inlines/evx7.h
+
+PROGRAMS = mktab_basic.exe mktab_packed.exe mktab_evx.exe mktab_astud.exe \
+	mktab_joker.exe mktab_lowball.exe \
+	evx_gen5.exe evx_gen7.exe
+
+DERIVED_SOURCES = \
+	$(BASIC_TABLES) \
+	$(PACKED_TABLES) \
+	$(EVX_TABLES) \
+	$(ASTUD_TABLES) \
+	$(JOKER_TABLES) \
+	$(LOWBALL_TABLES) 
+
+CC = cl 
+CFLAGS = -O1 -nologo -DNDEBUG -MD -DMSDOS 
+RANLIB = rem 
+AR = ar
+RM = del
+CC_OBJ = $(CC) $(CFLAGS) -I../include -c -Fo$@ $**
+CC_EXE = $(CC) $(CFLAGS) -I../include -Fe$@ $**
+RUN_IT = $**
+LIB_CMD = LIB /OUT:$@ $**
+SLIB_CMD = LINK /DLL /OUT:$@ $**
+
+all:	$(LIBPOKER) $(SLIBPOKER) $(EVX_HEADERS)
+
+$(LIBPOKER): $(OBJ)
+	$(LIB_CMD)
+	$(RANLIB) $@
+
+$(SLIBPOKER): $(OBJ)
+	$(SLIB_CMD)
+
+clean:
+	$(RM) *.obj core $(OBJ) $(LIBPOKER) $(SLIBPOKER)
+	$(RM) $(DERIVED_SOURCES) $(PROGRAMS) 
+
+$(BASIC_TABLES): mktab_basic.exe
+	$(RUN_IT)
+
+$(PACKED_TABLES): mktab_packed.exe
+	$(RUN_IT)
+
+$(EVX_TABLES): mktab_evx.exe
+	$(RUN_IT)
+
+$(ASTUD_TABLES): mktab_astud.exe
+	$(RUN_IT)
+
+$(JOKER_TABLES): mktab_joker.exe
+	$(RUN_IT)
+
+$(LOWBALL_TABLES): mktab_lowball.exe
+	$(RUN_IT)
+
+../include/inlines/evx5.h:	evx_gen5.exe evx_preamble.cfrag
+	$(RUN_IT) >  $@
+
+../include/inlines/evx7.h:	evx_gen7.exe evx_preamble.cfrag
+	$(RUN_IT) >  $@
+
+
+mktab_basic.exe: mktab_basic.obj $(MKTABLE_HELPERS)
+	$(CC_EXE) 
+
+mktab_packed.exe: mktab_packed.obj $(MKTABLE_HELPERS)
+	$(CC_EXE) 
+
+mktab_evx.exe: mktab_evx.obj $(MKTABLE_HELPERS)
+	$(CC_EXE) 
+
+mktab_astud.exe: mktab_astud.obj $(MKTABLE_HELPERS)
+	$(CC_EXE) 
+
+mktab_joker.exe: mktab_joker.obj $(MKTABLE_HELPERS)
+	$(CC_EXE) 
+
+mktab_lowball.exe: mktab_lowball.obj $(MKTABLE_HELPERS)
+	$(CC_EXE) 
+
+evx_gen5.exe:	evx_gen5.obj
+	$(CC_EXE)
+
+evx_gen7.exe:	evx_gen7.obj
+	$(CC_EXE)
+
+.c.obj:
+	$(CC) $(CFLAGS) -I../include -c $<
+
+evx_gen5.obj:	evx_generate.c
+	$(CC_OBJ) -DCARDS_DEALT=5 
+
+evx_gen7.obj:	evx_generate.c
+	$(CC_OBJ) -DCARDS_DEALT=7 
+
+Makefile: Makefile.in

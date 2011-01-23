@@ -1,0 +1,123 @@
+# Generated automatically from Makefile.in by configure.
+MKDIR	= mkdir
+RM	= del
+JAVA	= 
+JAVAC	= 
+JAVAH	= 
+JAVADOC	= 
+JAR	= 
+JDKHOME	= $(dir $(JAVAH))/..
+SLIBJNI_CMD= LINK /DLL /OUT:$@ ..\lib\libpoker.dll $**
+ifeq ($(JAVAC),jikes)
+  JAVACOPTS += +E +P
+  # TODO: improve on this jre best guess, perhaps in autoconf?
+  CLASSPATH := $(CLASSPATH):$(JDKHOME)/jre/lib/rt.jar
+endif
+
+JAVADOCDIR	:= javadoc
+SRC_JAVA 	:= $(shell find org -name '*.java')
+ALL_PKGS        := $(sort $(dir $(SRC_JAVA)))
+ALL_PKGS        := $(patsubst %/,%, $(ALL_PKGS))
+ALL_PKGS        := $(subst /,., $(ALL_PKGS))
+JAVADOC_PKGS	:= $(filter-out %.test, $(ALL_PKGS))
+CLASSFILES	:= $(SRC_JAVA:.java=.class)
+CLASSFILES	+= org/pokersource/util/ValueSortedMap$$ValueEntry.class
+
+JNI_JAVA	:= org/pokersource/eval/StandardEval.java \
+		   org/pokersource/eval/JokerEval.java \
+		   org/pokersource/eval/AsianStudEval.java \
+		   org/pokersource/enum/Enumerate.java
+JNI_CLASSES	:= $(subst /,., $(JNI_JAVA:.java=))
+JNI_CLASSFILES	:= $(JNI_JAVA:.java=.class)
+JNI_OBJS	:= $(JNI_JAVA:.java=Imp.obj)
+JNI_OBJS	+= jniutil.obj pokutil.obj
+JNI_HEADER	:= pokerjni.h
+JNILIB		:= ../lib/libpokerjni.dll
+JNI_INCLUDES	:= $(addprefix -I, $(shell find $(JDKHOME)/include -type d))
+
+JARSOURCE	:= $(CLASSFILES) sample1.hho
+JARSOURCE_QUOTED:= $(patsubst %,'%', $(JARSOURCE))
+POKERSOURCE_JAR	:= pokersource.jar
+JUNIT_JAR	:= junit-3.7.jar
+ORO_JAR		:= jakarta-oro-2.0.6.jar
+
+JAVADOC_DOCTITLE	:= 'PokerSource Java API'
+JAVADOC_WINDOWTITLE	:= $(JAVADOC_DOCTITLE)
+JAVADOC_HEADER		:= '<b>PokerSource Java API</b>'
+JAVADOC_BOTTOM		:= '<a href="http://www.pokersource.org/">PokerSource \
+			Home Page</a> - Learn how you can contribute!'
+JAVADOC_OVERVIEW	:= overview.html
+JAVADOC_CLASSPATH	:= .:$(JUNIT_JAR):$(ORO_JAR):$(CLASSPATH)
+
+all: classes jnilib jarfile javadoc
+classes: $(CLASSFILES)
+jnilib: $(JNILIB)
+jarfile: $(POKERSOURCE_JAR)
+javadoc: $(JAVADOCDIR)/index.html
+
+$(POKERSOURCE_JAR): $(JARSOURCE)
+	$(JAR) cf $@ $(JARSOURCE_QUOTED)
+
+$(JAVADOCDIR)/index.html: $(SRC_JAVA)
+	[ -d $(JAVADOCDIR) ] || $(MKDIR) $(JAVADOCDIR)
+	$(JAVADOC) -d $(JAVADOCDIR) -use -author -private \
+		-doctitle $(JAVADOC_DOCTITLE) \
+		-windowtitle $(JAVADOC_WINDOWTITLE) \
+		-header $(JAVADOC_HEADER) \
+		-bottom $(JAVADOC_BOTTOM) \
+		-overview $(JAVADOC_OVERVIEW) \
+		-classpath $(JAVADOC_CLASSPATH) $(JAVADOC_PKGS)
+
+clean: cleanclass
+	$(RM) $(JNI_HEADER) $(JNI_OBJS) $(JNILIB) $(POKERSOURCE_JAR)
+	$(RM) -r $(JAVADOCDIR)
+cleanclass:
+	$(RM) $(CLASSFILES)
+
+%.class: %.java
+	$(JAVAC) $(JAVACOPTS) -classpath .:$(JUNIT_JAR):$(ORO_JAR):$(CLASSPATH) $<
+
+pokerjni.h: $(JNI_CLASSFILES)
+	$(JAVAH) -o $@ -jni -force $(JNI_CLASSES)
+
+.c.obj:
+	$(CC) $(CFLAGS) -I. -I../include $(JNI_INCLUDES) -c $< -o $@
+
+$(JNILIB): $(JNI_OBJS)
+	$(SLIBJNI_CMD)
+
+$(JNI_OBJS): $(JNI_HEADER)
+
+TEST_CLASSPATH := $(POKERSOURCE_JAR):$(JUNIT_JAR):$(ORO_JAR):$(CLASSPATH)
+test: $(POKERSOURCE_JAR) $(JNILIB)
+	LD_LIBRARY_PATH=../lib:$$LD_LIBRARY_PATH \
+	  $(JAVA) -classpath $(TEST_CLASSPATH) org.pokersource.AllTests
+
+develtest: $(CLASSFILES)
+	$(JAVA) org.pokersource.util.ValueSortedMap
+	$(JAVA) org.pokersource.eval.StandardEval
+	$(JAVA) org.pokersource.eval.JokerEval
+	$(JAVA) org.pokersource.eval.AsianStudEval
+	$(JAVA) org.pokersource.enum.Enumerate
+	$(JAVA) org.pokersource.enum.HoldemAtomicGroup AhQh
+	$(JAVA) org.pokersource.enum.HoldemCanonGroup AA
+	$(JAVA) org.pokersource.enum.HoldemCanonGroup KQs
+	$(JAVA) org.pokersource.enum.HoldemCanonGroup T9
+	$(JAVA) org.pokersource.enum.HoldemSMGroup SM2
+	$(JAVA) org.pokersource.enum.HoldemAbdulGroup 'A8s+'
+	$(JAVA) org.pokersource.enum.HoldemAbdulGroup '99+'
+	$(JAVA) org.pokersource.enum.HoldemUniversalGroup
+	$(JAVA) org.pokersource.enum.HandValuation
+	$(JAVA) org.pokersource.enum.HoldemHandOrdering sample1.hho 0.90
+	$(JAVA) org.pokersource.enum.ThresholdHandGroup sample1.hho SAMP 'SAMP>0.90'
+	$(JAVA) org.pokersource.enum.HoldemBeliefVector "AhKh" "AA KK:50 QQ:20"
+	$(JAVA) org.pokersource.enum.SAIE 0 0 "AhKh" "AKs" "4h 5h 6h" ""
+	$(JAVA) org.pokersource.enum.SAIE 0 0 "87s+" "77" "7h 6h 5h" ""
+	$(JAVA) org.pokersource.enum.SAIE 0 0 "KhQc" "SM1 SM2 SM3" "4h 5h 3d" ""
+	$(JAVA) org.pokersource.enum.SAIE 0 0 "KhQc" "SM1 SM2 SM3 SM4 SM5" "4h 5h 3d" ""
+	$(JAVA) org.pokersource.enum.SAIE 0 0 "KhQc" "<any>" "4h 5h 3d" ""
+	$(JAVA) org.pokersource.enum.SAIE 100 0 "KhQc" "<any>" "4h 5h 3d" ""
+	$(JAVA) org.pokersource.enum.SAIE 100 0 "SM1 SM2" "<any>" "4h 5h 3d" ""
+
+Makefile: Makefile.in
+.PHONY: javadoc

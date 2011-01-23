@@ -1,0 +1,46 @@
+*******************************************************************************
+* XPokerEval.Test3                                                            *
+*******************************************************************************
+
+DESCRIPTION:
+
+   A hodgepodge of evaluator-testing code written by Steve Brecher, in a famous
+   2+2 thread:
+   
+   http://archives1.twoplustwo.com/showflat.php?Cat=0&Number=8513906&page=0&fpart=13&vc=1.
+   
+   This code tests 3 evaluators side by side:
+   
+      - The Two Plus Two 7-card evaluator
+      - The Pokersource Poker-eval evaluator
+      - Steve Brecher's HandEval evaluator
+      
+   In the following two scenarios:
+   
+      - Deal out and evaluate 1 million random hands
+      - Enumerate and evaluate all possible 7-card hands
+      
+   In order to control which evaluator is used, you'll need to set one of the following
+   three preprocessor macros (in TestHandRank.cpp) to 1:
+   
+      - LOOKUP
+      - EVALN
+      - HANDEVAL
+   
+   In order to control which test is run, you'll need to set one of the following two
+   preprocessor macros (in TestHandRank.cpp) to 1:
+   
+      - RANDOM1M (million random hands)
+      - ENUMERATE (enumerate all hands)
+      
+   Then rebuild and run.
+
+AUTHOR:
+
+   Steve Brecher and the 2+2 list.
+
+EVALUATORS TESTED:
+
+   XPokerEval.TwoPlusTwo
+   XPokerEval.Pokersource
+   XPokerEval.HoldemShowdown

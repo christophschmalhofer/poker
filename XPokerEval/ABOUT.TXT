@@ -1,0 +1,41 @@
+XPOKEREVAL 1.0
+
+A collection of poker hand evaluation source code compiled by James Devlin.
+Individual evaluators were written by many different people; see ABOUT.TXT
+in each evaluator's folder for author information.
+
+http://www.codingthewheel.com/archives/poker-hand-evaluator-roundup
+
+STRUCTURE
+
+Each evaluator has been placed into a separate Visual Studio 2005 project.
+Currently these projects are set to output static library (.lib) files, but
+this can be toggled to produce DLLs instead, if desired.
+
+For each evaluator, a sample project (suffixed with ".Test") is provided 
+showing basic use of the evaluator.
+
+NON-VISUAL STUDIO SOURCES
+
+The XPokerEval distribution includes Java and other source codes which
+aren't intended for a Visual Studio 2008 environment. For example, the
+full Pokersource Java API has been included. You can find this source
+code at XPokerEval/XPokerEval.Pokersource/java.
+
+LICENSE
+
+All of the source code included with this solution is open, meaning it's either
+GPL, in the public domain, etc. Where pertinent, license information has been
+appended to ABOUT.TXT for each individual evaluator.
+
+THIS SOFTWARE IS PROVIDED "AS IS" AND ANY EXPRESS OR IMPLIED
+WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT,
+INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
+STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING
+IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.

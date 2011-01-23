@@ -1,0 +1,12 @@
+*******************************************************************************
+* XPokerEval.Senzee7.Test                                                     *
+*******************************************************************************
+
+DESCRIPTION:
+
+   A simple test harness for Paul Senzee's 7-card evaluator.
+   
+EVALUATOR TESTED:
+
+   XPokerEval.CactusKev
+   

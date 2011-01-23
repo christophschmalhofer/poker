@@ -1,0 +1,20 @@
+*******************************************************************************
+* XPokerEval.PokerSim                                                         *
+*******************************************************************************
+
+DESCRIPTION:
+
+   Timmy's PokerSim Library. Performs basic poker simulations/evaluation using
+   exhaustive exploration or Monte Carlo.
+
+AUTHOR:
+
+   Timmy
+   http://pokerai.org/pf3/viewtopic.php?f=3&t=353&start=0
+
+   James Devlin (Visual Studio support)
+   http://www.codingthewheel.com/archives/poker-hand-evaluator-roundup
+ 
+TEST HARNESS:
+
+   XPokerEval.PokerSim.Test

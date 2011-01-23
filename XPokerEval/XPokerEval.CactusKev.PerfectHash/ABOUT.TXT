@@ -1,0 +1,24 @@
+*******************************************************************************
+* XPokerEval.CactusKev.PerfectHash                                            *
+*******************************************************************************
+
+DESCRIPTION:
+
+   Paul Senzee's optimized version of the Cactus Kev hand evaluator. Uses a
+   perfect hash instead of a binary search for lookups.
+   
+AUTHORS:
+
+   Paul Senzee (perfect hash optimization)
+   http://www.senzee5.com/2006/06/some-perfect-hash.html
+
+   Kevin Suffecool (original C code)
+   http://www.suffecool.net/poker/evaluator.html
+   
+   James Devlin (minor code modes: Visual Studio support, RNG, etc.)
+   http://www.codingthewheel.com/archives/poker-hand-evaluator-roundup
+
+TEST HARNESS:
+
+   XPokerEval.CactusKev.PerfectHash.Test
+

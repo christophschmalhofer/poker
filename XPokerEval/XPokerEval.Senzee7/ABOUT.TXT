@@ -1,0 +1,20 @@
+*******************************************************************************
+* XPokerEval.Senzee7                                                          *
+*******************************************************************************
+
+DESCRIPTION:
+
+   Paul Senzee's 7-card evaluator, not to be confused with his perfect hash
+   optimization to the 5-card Cactus Kev evaluator ;)
+
+AUTHOR:
+
+   Paul Senzee (index52c7 function and lookup tables)
+   http://www.senzee5.com/2007/01/7.html
+
+   James Devlin (code to build 266MB lookup table from index52c7)
+   http://www.codingthewheel.com/archives/poker-hand-evaluator-roundup
+ 
+TEST HARNESS:
+
+   XPokerEval.Senzee7.Test

@@ -1,0 +1,12 @@
+*******************************************************************************
+* XPokerEval.MoritzHammer.Test                                                *
+*******************************************************************************
+
+DESCRIPTION:
+
+   A simple example showing how to use the Moritz Hammer evaluator. In order
+   to run this example, you will need the "eqcllist" and "handdag" files.
+
+EVALUATOR TESTED:
+
+   XPokerEval.MoritzHammer

@@ -1,0 +1,12 @@
+*******************************************************************************
+* XPokerEval.TwoPlusTwo.Test                                                  *
+*******************************************************************************
+
+DESCRIPTION:
+
+   A simple test harness for the Two Plus Two 7-card evaluator.
+   
+EVALUATOR TESTED:
+
+   XPokerEval.TwoPlusTwo
+   

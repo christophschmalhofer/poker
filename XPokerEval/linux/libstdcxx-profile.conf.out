@@ -1,0 +1,14 @@
+__vector_shift_cost_factor = 1.000000
+__vector_iterate_cost_factor = 1.000000
+__vector_resize_cost_factor = 1.000000
+__list_shift_cost_factor = 0.000000
+__list_iterate_cost_factor = 10.000000
+__list_resize_cost_factor = 0.000000
+__map_insert_cost_factor = 1.500000
+__map_erase_cost_factor = 1.500000
+__map_find_cost_factor = 1.000000
+__map_iterate_cost_factor = 2.300000
+__umap_insert_cost_factor = 12.000000
+__umap_erase_cost_factor = 12.000000
+__umap_find_cost_factor = 10.000000
+__umap_iterate_cost_factor = 1.700000

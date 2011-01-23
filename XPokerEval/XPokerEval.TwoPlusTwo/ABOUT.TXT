@@ -1,0 +1,35 @@
+*******************************************************************************
+* XPokerEval.TwoPlusTwo                                                       *
+*******************************************************************************
+
+DESCRIPTION:
+
+   Generates a massive lookup table for fast 7-card hand recognition. When run,
+   this project outputs a "HandRanks.DAT" file which can then be loaded into
+   memory and used for fast lookups.
+   
+   This code forms the basis of the "Two Plus Two 7-Card Evaluator" developed by the 2+2
+   crowd and packaged into reference form by Ray Wotton.
+
+AUTHORS:
+
+   Two Plus Two (various)
+   http://archives1.twoplustwo.com/showflat.php?Cat=0&Number=8513906&amp;amp;amp;page=2&fpart=1&vc=1
+
+   James Devlin (Visual Studio packaging)
+   http://www.codingthewheel.com/archives/poker-hand-evaluator-roundup
+ 
+TEST HARNESSES:
+
+   1. The XPokerEval.TwoPlusTwo.Test project.
+   
+   2. The XPokerEval.Test3 project.
+   
+
+
+
+
+
+
+
+

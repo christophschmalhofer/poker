@@ -1,0 +1,28 @@
+*******************************************************************************
+* XPokerEval.HoldemShowdown                                                   *
+*******************************************************************************
+
+DESCRIPTION:
+
+   Steve Brecher's open-source Hold'em Showdown software, including the Brecher
+   HandEval evaluator.
+   
+AUTHOR:
+
+   Steve Brecher
+   http://www.stevebrecher.com
+   
+TEST HARNESS:
+
+   The XPokerEval.Test3 project (written by Steve) tests 3 different evaluators:
+      - The Two Plus Two evaluator
+      - The Pokersource evaluator
+      - Steve Brecher's HandEval evaluator
+      
+LICENSE:
+
+   "Hold’Em Showdown and its source code are in the public domain (not copyrighted).
+   You are free to give a copy to anyone."
+   http://www.stevebrecher.com/Software/software.html
+   
+

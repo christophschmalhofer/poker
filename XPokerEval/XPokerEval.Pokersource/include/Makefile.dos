@@ -1,0 +1,7 @@
+# Generated automatically from Makefile.in by configure.
+all:
+
+clean:
+	$(RM) inlines/evx5.h inlines/evx7.h
+
+Makefile: Makefile.in

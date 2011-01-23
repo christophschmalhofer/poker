@@ -1,0 +1,99 @@
+$Id: README 1773 2006-10-12 11:34:41Z loic $
+
+Introduction
+============
+
+poker-eval is a C library to evaluate poker hands. The result of the
+evalution for a given hand is a number. The general idea is that if
+the evalution of your hand is lower than the evaluation of the hand of
+your opponent, you lose. Many poker variants are supported (draw,
+holdem, omaha, etc.) and more can be added.  poker-eval is designed
+for speed so that it can be used within poker simulation software
+using either exhaustive exploration or Monte Carlo.
+
+The poker-eval library is Free Software and is released under the
+terms of the GNU General Public License. See the COPYING file in the
+root directory of the distribution.
+
+Compiling -- GNU/Linux and Unix systems
+=========================
+This library uses the GNU Autoconf self-configuration mechanism, so
+compiling on a GNU/Linux and Unix system should be fairly simple.  
+
+To build both the C library and the examples:
+  autoreconf --install
+  ./configure
+  make 
+
+To build and run the tests:
+
+  AUTOMAKE=automake-1.9 ACLOCAL=aclocal-1.9 autoreconf --install
+  ./configure
+  make check
+
+The "make check" command will run several test programs to ensure that
+everything works correctly.  On slow machines, the tests may take
+several minutes.
+
+To install the library and the headers (by default they will
+install in /usr/local/lib and /usr/local/include/poker-eval 
+respectively):
+
+   ./configure
+   make install
+
+To run the examples:
+
+   cd examples
+   read the usage at the beginning of the source file
+   and run the program accordingly
+
+Compiling -- Windows, using cygwin 
+==================================
+If you have the cygwin package installed, you can build the library as
+per the directions above for GNU/Linux and Unix systems.
+
+Compiling -- DOS / Windows (May be obsolete, please send updates
+to cpinson@freesheep.org)
+================================================================
+The library can also be compiled using Microsoft Visual C++.  In each
+directory, special DOS makefiles are provided, called makefile.dos.
+To compile the library, make sure that the VC tools are on the path
+and that the LIB variable is properly set (VC provides a batch file,
+vcvars32.bat, to set this up), and enter the following commands:
+  cd lib
+  nmake -f makefile.dos
+  cd ..\examples
+  nmake -f makefile.dos
+  cd ..\tests
+  nmake -f makefile.dos
+
+You can't use make to run the test programs under Windows as you can
+on Unix, but you can run them (digtest5 and digtest7, in the tests
+directory) and compare the output value with the value in the make
+file (makefile.dos in the tests directory) to ensure that the right
+thing happened.  
+
+Once the library is built, you can use the resulting library
+(libpoker.lib) in other Visual C++ projects.  Make sure to put the
+include directory of the pokersource library package in the include
+path for projects that will be using the library.  
+
+Download
+========
+The library may be obtained from the pokersource project at
+http://gna.org/projects/pokersource/
+
+
+Reporting bugs, suggesting improvements
+=======================================
+As of August 2005, the poker-eval library is maintained by
+Loic Dachary.  Bug reports, suggestions for improvements, or candidates
+for inclusion should be sent to
+     Loic Dachary <loic@dachary.org>
+     Tim Showalter <tjs@psaux.com> 
+     Michael Maurer <mjmaurer@yahoo.com>
+
+You can also check out the pokersource user group at
+http://groups.yahoo.com/group/pokersource or the mailing list
+at https://mail.gna.org/listinfo/pokersource-users/

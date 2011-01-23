@@ -1,0 +1,22 @@
+*******************************************************************************
+* XPokerEval.PokerSource.CSharp                                               *
+*******************************************************************************
+
+DESCRIPTION:
+
+   A C# interface to the Pokersource Poker-Eval library. Uses P/Invoke to call
+   functions in the Poker-Eval DLL.
+
+AUTHORS:
+
+   Johan Euphrosine (johan@mekensleep.com)
+   
+   Pokersource Group. Maintainer: Loic Dachary (loic@dachary.org)
+   http://www.pokersource.info
+   
+   James Devlin (Visual Studio packaging)
+   http://www.codingthewheel.com/archives/poker-hand-evaluator-roundup
+     
+TEST HARNESS:
+
+   None.

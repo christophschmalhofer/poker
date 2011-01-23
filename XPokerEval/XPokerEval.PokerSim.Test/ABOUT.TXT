@@ -1,0 +1,11 @@
+*******************************************************************************
+* XPokerEval.PokerSim.Test                                                    *
+*******************************************************************************
+
+DESCRIPTION:
+
+   Tests the "Timmy's Poker Sim" evaluator.
+
+EVALUATOR TESTED:
+
+   XPokerEval.PokerSim

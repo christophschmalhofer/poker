@@ -1,0 +1,45 @@
+*******************************************************************************
+* XPokerEval.Pokersource                                                      *
+*******************************************************************************
+
+DESCRIPTION:
+
+   The XPokerEval.Pokersource project builds the "LIBPOKER.LIB" or "LIBPOKER.DLL"
+   file from the Pokersource Poker-Eval source code (version 1.34.0). This is the
+   same core LIB/DLL you would get if you built Pokersource via the makefiles.
+   
+   Note that this project is just one small piece of the Pokersource Poker-Eval
+   code. The full Pokersource Poker-Eval distribution is contained inside this
+   project's folder (that's XPokerEval/XPokerEval.Pokersource/), including various
+   test utilities such as:
+   
+      - fish
+      - hcmpn
+      - hcmpn2
+      
+   You can open all this source code in a single Visual Studio solution, the file
+   you want is POKER-EVAL.SLN.
+   
+   Also...
+   
+   The full source code for the Pokersource Java API can also be found in this folder
+   at:
+   
+      /XPokerEval/XPokerEval.Pokersource/java
+      
+AUTHOR:
+
+   The Pokersource group (current maintainer: Loic Dachary loic@dachary.net)
+   http://www.pokersource.info
+   http://download.gna.org/pokersource/sources/
+   
+   James Devlin (Visual Studio packaging)
+   http://www.codingthewheel.com/archives/poker-hand-evaluator-roundup
+ 
+TEST HARNESS:
+
+   1. XPokerEval.PokerSource.Test
+   
+   2. XPokerEval.Test3
+   
+   

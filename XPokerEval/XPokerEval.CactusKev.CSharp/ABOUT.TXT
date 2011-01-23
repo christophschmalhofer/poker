@@ -1,0 +1,22 @@
+*******************************************************************************
+* XPokerEval.CactusKev.CSharp                                                 *
+*******************************************************************************
+
+DESCRIPTION:
+
+   A C# port, by Mike Benson, of the Cactus Kev 5-card Evaluator with Perfect Hash.
+
+AUTHORS:
+
+   Mike Benson (C# port)
+   http://thebensons.org/blog/2006/09/14/c-performance-vs-c-performance/     
+
+   Kevin Suffecool (original C code)
+   http://www.suffecool.net/poker/evaluator.html
+   
+   James Devlin (minor source code mods, Visual Studio support, etc.)
+   http://www.codingthewheel.com/archives/poker-hand-evaluator-roundup
+  
+TEST HARNESS:
+
+   XPokerEval.CactusKev.CSharp.Test

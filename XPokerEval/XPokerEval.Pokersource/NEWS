@@ -1,0 +1,61 @@
+Release 134.0
+
+Bug fixes.
+
+Release 133.0
+
+Portability fixes.
+
+C# binding for enumdefs & std_deck
+
+Introduce functional equivalent of std_deck macros for language bindings.
+
+Release 132.0
+
+Distribution fixes.
+
+Windows bundle (NSI)
+
+Release 131.0
+
+Distribution fixes.
+
+Release 130.0
+
+Autotools CPP macros conflict resolved.
+
+64 bits fixes.
+
+Architecture dependent tables removed from distribution and generated at build time.
+
+Portability fixes.
+
+Release 129.0
+
+Portability fixes.
+
+Release 128.0
+
+Portability and tests fixes.
+
+Release 127.0
+
+A-5 is not a straight is not a straight in lowball 27
+
+Release 126.0
+
+Portability fixes
+
+Release 125.0
+
+Macintosh build fixes
+
+RPM packaging files
+
+Release 124.0
+
+Automake files
+
+Portability fixes
+
+Java temporarily removed because of licensing problems

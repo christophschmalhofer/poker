@@ -1,0 +1,19 @@
+Package: libpoker-eval
+Version: 133.0
+Revision: 1
+Description: Library for poker hand evaluation, dev files
+License: GPL
+Maintainer: Johan Euphrosine <proppy@aminche.com>
+Depends: %n-shlibs (=%v-%r)
+BuildDepends: pkgconfig
+Source: http://download.gna.org/pokersource/sources/poker-eval-%v.tar.gz
+Source-MD5: a0495760b99d224ac85f9f80e58c4fb5
+Homepage: http://pokersource.org/poker-eval
+DocFiles: COPYING
+SplitOff: <<
+	  Package: %N-shlibs
+	  Description: Library for poker hand evaluation, library
+	  Files: lib/libpoker-eval.1.dylib lib/libpoker-eval.1.0.0.dylib
+	  Shlibs: %p/lib/libpoker-eval.1.dylib 1.0.0 %n (>= 133.0-1)
+	  DocFiles: COPYING
+<<

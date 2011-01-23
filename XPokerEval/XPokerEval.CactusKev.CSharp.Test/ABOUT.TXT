@@ -1,0 +1,11 @@
+*******************************************************************************
+* XPokerEval.CactusKev.CSharp.Test                                            *
+*******************************************************************************
+
+DESCRIPTION:
+
+   A simple test harness for Mike Benson's C# port of the Cactus Kev evaluator.
+
+EVALUATOR:
+
+   XPokerEval.CactusKev.CSharp

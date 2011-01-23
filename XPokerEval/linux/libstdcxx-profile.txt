@@ -1,0 +1,1 @@
+map-to-unordered-map: improvement = -8: call stack = 0x404528 0x3db0a1ee7d 0x402969 : advice = change std::map to std::unordered_map

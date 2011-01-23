@@ -1,0 +1,31 @@
+*******************************************************************************
+* XPokerEval.PokerSource.KeithRule                                            *
+*******************************************************************************
+
+DESCRIPTION:
+
+   Keith Rule's C# port of the Poker-Eval library. Uses the same algorithms
+   (bitcounting, masking, etc) as the Poker-Eval library, but does it in C#
+   rather than in C.
+
+AUTHORS:
+
+   Keith Rule
+   http://www.codeproject.com/KB/game/pokerhandevaldoc.aspx
+
+   pokersource Team (original C implementation)
+   http://www.pokersource.org   
+
+   James Devlin (packaging)
+   http://www.codingthewheel.com/archives/poker-hand-evaluator-roundup
+ 
+TEST HARNESS:
+
+   1. XPokerEval.PokerSource.KeithRule.Test
+   
+   2. Keith's original CodeProject project at the above link contains an NUnit test
+   harness not included in this distribution.
+   
+LICENSE:
+
+GPL - http://www.gnu.org/copyleft/gpl.html

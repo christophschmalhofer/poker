@@ -1,0 +1,14 @@
+*******************************************************************************
+* XPokerEval.PokerSource.Test                                                 *
+*******************************************************************************
+
+DESCRIPTION:
+
+   A simple test harness for the Pokersource Poker-Eval C evaluator. 
+   
+EVALUATOR TESTED:
+
+   XPokerEval.Pokersource
+   
+   
+   

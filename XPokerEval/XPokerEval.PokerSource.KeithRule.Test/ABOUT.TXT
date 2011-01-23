@@ -1,0 +1,14 @@
+*******************************************************************************
+* XPokerEval.PokerSource.KeithRule.Test                                       *
+*******************************************************************************
+
+DESCRIPTION:
+
+   A simple test harness for the Keith Rule C# evaluator.
+   
+EVALUATOR TESTED:
+
+   XPokerEval.PokerSource.KeithRule
+   
+   
+   

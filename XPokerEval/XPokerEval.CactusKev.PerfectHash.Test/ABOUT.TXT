@@ -1,0 +1,14 @@
+*******************************************************************************
+* XPokerEval.CactusKev.PerfectHash.Test                                       *
+*******************************************************************************
+
+DESCRIPTION:
+
+   A simple test harness for the improved Cactus Kev evaluator, which uses
+   Paul Senzee's perfect hash optimization.
+   
+EVALUATOR TESTED:
+
+   XPokerEval.CactusKev.PerfectHash
+   
+

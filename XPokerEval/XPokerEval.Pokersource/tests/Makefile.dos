@@ -1,0 +1,80 @@
+# Generated automatically from Makefile.in by configure.
+LIBPOKER = ../lib/libpoker.lib
+
+CC = cl 
+CFLAGS = -O1 -nologo -DNDEBUG -MD -DMSDOS 
+RANLIB = rem 
+AR = ar
+RM = del
+CC_OBJ = $(CC) $(CFLAGS) -I../include -c -Fo$@ $**
+CC_EXE = $(CC) $(CFLAGS) -I../include -Fe$@ $**
+RUN_IT = $**
+LIB_CMD = LIB /OUT:$@ $**
+
+all: tests
+
+tests: enumtest5.exe enumtest7.exe joktest1.exe enumtest1.exe enumtest2.exe enumtest3.exe
+
+enumtest5.exe : enumtest5.obj $(LIBPOKER)
+	$(CC_EXE)
+
+enumtest7.exe : enumtest7.obj $(LIBPOKER)
+	$(CC_EXE)
+
+joktest1.exe : joktest1.obj $(LIBPOKER)
+	$(CC_EXE)
+
+enumtest1.exe : enumtest1.obj $(LIBPOKER)
+	$(CC_EXE)
+
+enumtest2.exe : enumtest2.obj $(LIBPOKER)
+	$(CC_EXE)
+
+enumtest3.exe : enumtest3.obj $(LIBPOKER)
+	$(CC_EXE)
+
+clean:
+	$(RM) *.obj core enumtest5.exe enumtest7.exe joktest1.exe
+	$(RM) enumtest1.exe enumtest2.exe enumtest3.exe
+
+.c.obj:
+	$(CC_OBJ)
+
+test : tests
+	@echo -n "enumtest1: enumeration test 1...  "
+	@if [ `./enumtest1 6 3 | md5sum - | awk '{print $$1}'` \
+		= 425daf38998180d6f261ac6801d589dd ] ; \
+		then echo "		Passed"; \
+		else echo "		Failed"; \
+	fi
+	@echo -n "enumtest2: enumeration test 2...  "
+	@if [ `./enumtest2 | md5sum - | awk '{print $$1}'` \
+		= 1e144704f542b3046c174bcfc3c1f2a2 ] ; \
+		then echo "		Passed"; \
+		else echo "		Failed"; \
+	fi
+	@echo -n "enumtest3: enumeration test 3...  "
+	@if [ `./enumtest3 | md5sum - | awk '{print $$1}'` \
+		= 8eca9e9a0aa0e4ad71acafbc8a93da4a ] ; \
+		then echo "		Passed"; \
+		else echo "		Failed"; \
+	fi
+	@echo -n "enumtest5: 5-card hands...  "
+	@if [ `./enumtest5 | md5sum - | awk '{print $$1}'` \
+		= 1f066feff1a8b3406fe069c05c4ba17d ] ; \
+		then echo "		Passed"; \
+		else echo "		Failed"; \
+	fi
+	@echo -n "enumtest7: 7-card hands...  "
+	@if [ `./enumtest7 | md5sum - | awk '{print $$1}'` \
+		= 03a86bd2deac3052bbe93256e0d7b156 ] ; \
+		then echo "		Passed"; \
+		else echo "		Failed"; \
+	fi
+	@echo -n "joktest1: joker eval...  "
+	@if ./joktest1 > /dev/null ; \
+		then echo "		Passed"; \
+		else echo "		Failed"; \
+	fi
+
+Makefile: Makefile.in

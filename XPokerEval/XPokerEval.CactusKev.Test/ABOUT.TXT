@@ -1,0 +1,16 @@
+*******************************************************************************
+* XPokerEval.CactusKev.Test                                                   *
+*******************************************************************************
+
+DESCRIPTION:
+
+   A simple test harness for the original version of the Cactus Kev evaluator.
+   
+EVALUATOR TESTED:
+
+   XPokerEval.CactusKev
+   
+
+
+
+

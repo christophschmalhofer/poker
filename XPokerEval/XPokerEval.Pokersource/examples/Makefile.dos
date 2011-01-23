@@ -1,0 +1,49 @@
+# Generated automatically from Makefile.in by configure.
+LIBPOKER = ../lib/libpoker.lib
+
+CC = cl 
+CFLAGS = -O1 -nologo -DNDEBUG -MD -DMSDOS 
+RANLIB = rem 
+AR = ar
+RM = del
+CC_OBJ = $(CC) $(CFLAGS) -I../include -c -Fo$@ $**
+CC_EXE = $(CC) $(CFLAGS) -I../include -Fe$@ $**
+RUN_IT = $**
+LIB_CMD = LIB /OUT:$@ $**
+
+PROGRAMS = five_card_hands.exe seven_card_hands.exe fish.exe eval.exe \
+	hcmp2.exe hcmpn.exe usedecks.exe pokenum.exe
+
+all : $(PROGRAMS)
+
+five_card_hands.exe: five_card_hands.obj $(LIBPOKER)
+	$(CC_EXE)
+
+seven_card_hands.exe: seven_card_hands.obj $(LIBPOKER)
+	$(CC_EXE)
+
+fish.exe: fish.obj $(LIBPOKER)
+	$(CC_EXE)
+
+eval.exe: eval.obj $(LIBPOKER)
+	$(CC_EXE)
+
+hcmp2.exe: hcmp2.obj $(LIBPOKER)
+	$(CC_EXE)
+
+hcmpn.exe: hcmpn.obj $(LIBPOKER)
+	$(CC_EXE)
+
+usedecks.exe: usedecks.obj $(LIBPOKER)
+	$(CC_EXE)
+
+pokenum.exe: pokenum.obj $(LIBPOKER)
+	$(CC_EXE)
+
+clean:
+	$(RM) core *.obj $(PROGRAMS) 
+
+.c.obj:
+	$(CC_OBJ)
+
+Makefile: Makefile.in

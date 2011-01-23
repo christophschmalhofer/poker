@@ -1,0 +1,64 @@
+*******************************************************************************
+* XPokerEval.MoritzHammer                                                     *
+*******************************************************************************
+
+DESCRIPTION:
+
+   The "Moritz Hammer" poker hand evaluator, which uses a Directed Acyclic
+   Graph (DAG) in conjunction with the Cactus Kev poker equivalence classes
+   to perform 7-card poker hand recognition.
+   
+   In order to use this evaluator, you will need the "eqcllist" and "handdag"
+   files. The eqcllist file is included with the XPokerEval distribution.
+   The handdag file can be acquired by either:
+   
+      - Building the file, using the accompanying Java code
+      - Downloading the file from http://www.pst.ifi.lmu.de/~hammer/poker/handeval.html#source.
+
+AUTHORS:
+
+   Moritz Hammer (original author) (hammer@pst.ifi.lmu.de)
+   http://www.pst.ifi.lmu.de/~hammer/poker/handeval.html
+
+   Kevin Suffecool (equivalence class tables)
+   http://www.suffecool.net/poker/7462.html
+   
+   James Devlin (minor source code modifications for Visual Studio 2005)
+   http://www.codingthewheel.com/archives/poker-hand-evaluator-roundup
+
+LANGUAGE SUPPORT:
+
+   C, C++, Java (native and via JNI)
+   
+LICENSE:
+
+Copyright (c) 2008 Moritz Hammer (hammer@pst.ifi.lmu.de). All Rights Reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are
+met:
+
+1. Redistributions of source code must retain the above copyright
+   notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright
+   notice, this list of conditions and the following disclaimer in the
+   documentation and/or other materials provided with the
+   distribution.
+
+3. The name of the author may not be used to endorse or promote
+   products derived from this software without specific prior written
+   permission.
+
+THIS SOFTWARE IS PROVIDED "AS IS" AND ANY EXPRESS OR IMPLIED
+WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT,
+INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
+STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING
+IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.
+

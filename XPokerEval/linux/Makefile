@@ -1,0 +1,26 @@
+VPATH=../util ../XPokerEval.RNG/ ../XPokerEval.CactusKev.PerfectHash/ ../XPokerEval.CactusKev.PerfectHash.Test/ ../XPokerEval.TwoPlusTwo ../XPokerEval.TwoPlusTwo.Test 
+
+CC=g++
+#CXXFLAGS=-D_GLIBCXX_PROFILE
+CXXFLAGS=-O4 -std=c++0x -Wall
+
+
+all: generate_table test
+
+PML=pokerlib.o mtrand.o Timer.o 
+
+generate_table: generate_table.o $(PML) 
+
+stlgen: stlgen.o $(PML)
+
+test: test.o Timer.o
+
+allfive: allfive.o $(PML)
+seven: seven.o pokerlib.o Timer.o mtrand.o
+
+clean:
+	find .. -name "*.o" -delete
+	find -name generate_table -delete
+	find -name stlgen -delete
+	find -name test -delete
+	find -name allfive -delete

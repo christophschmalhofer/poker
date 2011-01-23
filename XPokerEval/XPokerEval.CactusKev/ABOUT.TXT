@@ -1,0 +1,23 @@
+*******************************************************************************
+* XPokerEval.CactusKev                                                        *
+*******************************************************************************
+
+DESCRIPTION:
+
+   The original Cactus Kev 5-card evaluator.
+
+AUTHOR:
+
+   Kevin Suffecool (original author)
+   http://www.suffecool.net/poker/evaluator.html
+
+   James Devlin (minor code mods: Visual Studio support; add'l comments; RNG)
+   http://www.codingthewheel.com/archives/poker-hand-evaluator-roundup
+ 
+TEST HARNESS:
+
+   XPokerEval.CactusKev.Test
+
+
+
+
